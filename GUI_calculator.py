@@ -1,62 +1,6 @@
-from tkinter import *
-
-root = Tk()
-root.title('Simple calculator')
-root.configure(background='#263238')
-e = Entry(root, width = 35, borderwidth = 5)
-e.grid(row = 0, column = 0, columnspan = 4, padx = 10, pady = 10)
+from Operations_functions import *
 
 
-def num_(number_):
-	#e.delete(0, END)
-	e.insert(END, number_)
-	#e.get() 
-def clear_():
-	R_ = 0
-	e.delete(0, END)
-
-def dot_():
-	e.insert(END, '.')
-
-def sum_():
-	global R_
-	R_ = float(e.get())
-	global Operation_
-	Operation_ = 'Sum'
-	e.delete(0, END)
-def sus_():
-	global R_
-	R_ = float(e.get())
-	global Operation_
-	Operation_ = 'Substraction'
-	e.delete(0, END)
-def mul_():
-	global R_
-	R_ = float(e.get())
-	global Operation_
-	Operation_ = 'Multiplication'
-	e.delete(0, END)
-def div_():
-	global R_
-	R_ = float(e.get())
-	global Operation_
-	Operation_ = 'Division'
-	e.delete(0, END)
-
-def eq_():
-	second = e.get()
-	e.delete(0, END)
-	if 	Operation_ == 'Sum':
-		e.insert(0, R_ + float(second))
-	elif 	Operation_ == 'Substraction':
-		e.insert(0, R_ - float(second))
-	elif 	Operation_ == 'Multiplication':
-		e.insert(0, R_ * float(second))
-	elif 	Operation_ == 'Division':
-		e.insert(0, R_ / float(second))
-
-def act_():
-	return
 
 button_l = Button(root, text = '(', padx = 35, pady = 35, bg = '#004D40', fg = 'white', command = lambda: act_()).grid(row = 1, column = 0)
 button_r = Button(root, text = ')', padx = 35, pady = 35, bg = '#004D40', fg = 'white', command = lambda: act_()).grid(row = 1, column = 1)
@@ -81,6 +25,5 @@ button_mul = Button(root, text = 'x', padx = 35, pady = 35, bg = '#00796B', fg =
 button_0 = Button(root, text = '0', padx = 79, pady = 35, bg = '#263238', fg = 'white', command = lambda: num_(0)).grid(row = 5, column = 0, columnspan = 2)
 butoon_dot = Button(root, text = '.', padx = 37, pady = 35,bg = '#263238', fg = 'white', command = dot_).grid(row = 5, column = 2)
 butoon_eq = Button(root, text = '=', padx = 35, pady = 35, bg = '#009688', fg = 'white', command = eq_).grid(row = 5, column = 3)
-
 
 root.mainloop()
